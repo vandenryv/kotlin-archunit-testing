@@ -3,7 +3,9 @@ plugins {
 }
 
 include("domain")
-include("database")
+include("out")
+include("in")
 include("common")
 rootProject.name = "HexaVote"
-include("api")
+
+

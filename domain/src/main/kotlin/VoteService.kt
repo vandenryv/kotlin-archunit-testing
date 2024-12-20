@@ -1,15 +1,15 @@
 package org.hexavote.domain
 
-import CommonUtils.newUuid
+import common.CommonUtils.newUuid
 import org.hexavote.domain.errors.VoteNotFoundError
-import org.hexavote.domain.inplug.IVoteService
 import org.hexavote.domain.model.Ballot
 import org.hexavote.domain.model.Candidate
 import org.hexavote.domain.model.Vote
 import org.hexavote.domain.model.Voter
-import org.hexavote.domain.outplug.IVoteRepo
+import org.hexavote.domain.port.`in`.VotePort as VotePortIn
+import org.hexavote.domain.port.out.VotePort as VotePortOut
 
-open class VoteService(val repo: IVoteRepo) : IVoteService {
+open class VoteService(private val repo: VotePortOut) : VotePortIn {
 
     override fun voterVotes(vote: Vote, voter: Voter, ballot: Ballot) {
         // No link between the two it is important

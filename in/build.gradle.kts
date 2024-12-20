@@ -2,11 +2,11 @@ plugins {
     kotlin("jvm") version "2.0.20"
     id("org.springframework.boot") version "3.3.5"
     id("io.spring.dependency-management") version "1.1.6"
-    id("org.jetbrains.kotlin.plugin.spring") version "2.0.21"
 }
 
-group = "org.hexavote"
-version = "1.0-SNAPSHOT"
+group = "org.hexavote.in"
+version = "0.0.1-SNAPSHOT"
+
 
 repositories {
     mavenCentral()
@@ -19,10 +19,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    implementation(project("domain"))
-    implementation(project("in"))
-    implementation(project("out"))
-    implementation(project("common"))
+    implementation(project(":domain"))
+    implementation(project(":common"))
     testImplementation("com.tngtech.archunit:archunit-junit5:1.3.0")
 }
 
@@ -34,13 +32,4 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-allprojects {
-    apply(plugin = "kotlin")
-
 }

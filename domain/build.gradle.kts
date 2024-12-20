@@ -15,18 +15,10 @@ dependencies {
     testImplementation("org.mockito.kotlin:mockito-kotlin:+")
     implementation(kotlin("stdlib-jdk8"))
     implementation(project(":common"))
+    testImplementation("com.tngtech.archunit:archunit:1.3.0")
+    testImplementation("com.tngtech.archunit:archunit-junit5:1.3.0")
 }
 
 tasks.test {
     useJUnitPlatform()
 }
-//val mockitoAgent = configurations.create("mockitoAgent")
-//dependencies {
-//    testImplementation(libs.mockito)
-//    mockitoAgent(libs.mockito) { isTransitive = false }
-//}
-//tasks {
-//    test {
-//        jvmArgs("-javaagent:${mockitoAgent.asPath}")
-//    }
-//}

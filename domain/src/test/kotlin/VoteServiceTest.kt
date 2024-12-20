@@ -1,10 +1,10 @@
-import CommonUtils.newUuid
-import TestUtils.getRandomString
+import common.CommonUtils.newUuid
+import common.TestUtils.getRandomString
 import org.hexavote.domain.VoteService
 import org.hexavote.domain.model.Ballot
 import org.hexavote.domain.model.Candidate
 import org.hexavote.domain.model.Vote
-import org.hexavote.domain.outplug.IVoteRepo
+import org.hexavote.domain.port.out.VotePort
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.Mockito.doReturn
@@ -12,7 +12,7 @@ import org.mockito.Mockito.mock
 
 @ExtendWith()
 class VoteServiceTest {
-    val repo = mock<IVoteRepo>()
+    val repo = mock<VotePort>()
 
     val voteService = VoteService(repo)
 

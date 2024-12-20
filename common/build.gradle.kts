@@ -1,8 +1,9 @@
 plugins {
-    id("java")
+    kotlin("jvm") version "2.0.20"
+    id("maven-publish")
 }
 
-group = "org.hexavote"
+group = "org.hexavote.common"
 version = "1.0-SNAPSHOT"
 
 repositories {

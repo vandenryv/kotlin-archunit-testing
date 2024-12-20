@@ -1,8 +1,8 @@
 package org.hexavote
 
-import VoteRepoHashMap
-import org.hexavote.api.VoteApi
+import VotePortHashMap
 import org.hexavote.domain.VoteService
+import org.hexavote.`in`.VoteController
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.stereotype.Component
@@ -18,11 +18,11 @@ fun main(args: Array<String>) {
 }
 
 @Component
-class VoteRepoGlue : VoteRepoHashMap()
+class VotePortGlue : VotePortHashMap()
 
 @Service
-class VoteServiceGlue(glueRepo: VoteRepoGlue) : VoteService(glueRepo)
+class VoteServiceGlue(glueRepo: VotePortGlue) : VoteService(glueRepo)
 
 @RestController()
 @RequestMapping("/api/v1/vote")
-class ApiGlue(service: VoteServiceGlue) : VoteApi(service)
+class ControllerGlue(service: VoteServiceGlue) : VoteController(service)
